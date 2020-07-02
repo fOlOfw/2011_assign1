@@ -1,3 +1,8 @@
+/*
+* June 
+* Filiz Eryilmaz - 215220908
+*/
+
 import java.io.*;
 import java.nio.file.Paths;
 import java.util.Scanner;
@@ -39,10 +44,31 @@ public class Assignment1{
 		   * C11 = M0 - M1 + M2 + M5
 		   */ 
 		  
-		  for (int i = 0; i < size; i++) {
-			  for (int j = 0; j < size; j++) {
+		  int[][] C00 = sum(sub(sum(M0, M3, 0, 0, 0, 0, size/2), M4, 0, 0, 0, 0, size/2), M6, 0, 0, 0, 0, size/2);
+		  int[][] C01 = sum(M2, M4, 0, 0, 0, 0, size/2);
+		  int[][] C10 = sum(M1, M3, 0, 0, 0, 0, size/2);
+		  int[][] C11 = sum(sum(sub(M0, M1, 0, 0, 0, 0, size/2), M2, 0, 0, 0, 0, size/2), M5, 0, 0, 0, 0, size/2);
+		 
+		  
+		  /*
+		   * Two nested loops needed to add columns and rows of matrices
+		   * Combining values into one array
+		   */
+		  
+		  
+		  for(int i = 0; i < C.length/2; i++) {
+			  
+			  for(int j = 0; j < C.length/2; j++) {
+			
+				  C[i][j] = C00[i][j]; //top left
+				  C[i][j + C.length/2] = C01[i][j]; //top right
+				  C[i+ C.length/2][j] = C10[i][j]; //bottom left
+				  C[i+ C.length/2][j + C.length/2] = C11[i][j]; //bottom right
 				  
+				//  System.out.print("test " + C[i][j]);
+			
 			  }
+		
 		  }
 	  }
 	  
