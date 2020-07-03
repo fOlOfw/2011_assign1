@@ -37,6 +37,10 @@ public class Assignment1{
 		   * C01 = M2 + M4
 		   * C10 = M1 + M3
 		   * C11 = M0 - M1 + M2 + M5
+		   *
+		   * After dividing matrices recursively into 7 matrices, each matrix becomes an n/2 * n/2.
+		   * We combined the 7 M matrices to C matrices by subtracting and summing in order to create 
+		   * the submatrices.
 		   */ 
 		  
 		  int[][] C00 = sum(sub(sum(M0, M3, 0, 0, 0, 0, size/2), M4, 0, 0, 0, 0, size/2), M6, 0, 0, 0, 0, size/2);
@@ -111,16 +115,17 @@ public class Assignment1{
   
   public int[][] readMatrix(String filename, int n) throws Exception
   {	  
-	  File file = new File(filename);
+	  
+	  File file = new File(filename); 
 	  Scanner in = new Scanner(file);
 	  int[][] A = new int[n][n];
 	  
 	  try {		
-		  while(in.hasNext()) {
+		  while(in.hasNext()) { 
 			  for(int i=0; i < A.length; i++) {				  
-				  String[] row = in.nextLine().trim().split(" ");				  
+				  String[] row = in.nextLine().trim().split(" "); //read the file line by line				  
 				  for(int j=0; j < A[i].length; j++) {					  
-					  A[i][j] = Integer.parseInt(row[j]);
+					  A[i][j] = Integer.parseInt(row[j]); 
 				  }
 			  }
 		  }
