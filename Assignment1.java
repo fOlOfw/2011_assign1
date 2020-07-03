@@ -74,10 +74,18 @@ public class Assignment1{
 	  return C;
   }
   
-  public int[][] sum(int[][] A, int[][] B, int x1, int y1, int x2, int y2, int n)
+public int[][] sum(int[][] A, int[][] B, int x1, int y1, int x2, int y2, int n)
   {
-	  int[][] C = new int[n][n];
-	  for (int i = 0; i < n; i++, x1++, x2++) {
+	  int[][] C = new int[n][n]; //result matrix
+	  
+	  //increase row position of each matrix every loop
+	  for (int i = 0; i < n; i++, x1++, x2++) {	
+		  
+		  /*
+		   * create new values to store the column position so it will
+		   * wrap around each time outer loop reruns
+		   * increase column position of each matrix every loop
+		   */
 		  for (int j = 0, ay = y1, by = y2; j < n; j++, ay++, by++) {
 			  C[i][j] = A[x1][ay] + B[x2][by];
 		  }
