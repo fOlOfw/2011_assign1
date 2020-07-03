@@ -1,8 +1,3 @@
-/*
-* June 
-* Filiz Eryilmaz - 215220908
-*/
-
 import java.io.*;
 import java.nio.file.Paths;
 import java.util.Scanner;
@@ -29,14 +24,14 @@ public class Assignment1{
 		   * M6 = (A01 - A11) * (B10 + B11)
 		   */
 		  
-		  int[][] M0 = denseMatrixMult(sum(A, A, 0, 0, 1, 1, size/2), sum(B, B, 0, 0, 1, 1, size/2), size/2);
-		  int[][] M1 = denseMatrixMult(sum(A, A, 1, 0, 1, 1, size/2), sum(B, zero, 0, 0, 0, 0, size/2), size/2);		  
-		  int[][] M2 = denseMatrixMult(sum(A, zero, 0, 0, 0, 0, size/2), sub(B, B, 0, 1, 1, 1, size/2), size/2);
-		  int[][] M3 = denseMatrixMult(sum(A, zero, 1, 1, 0, 0, size/2), sub(B, B, 1, 0, 0, 0, size/2), size/2);
-		  int[][] M4 = denseMatrixMult(sum(A, A, 0, 0, 0, 1, size/2), sum(B, zero, 1, 1, 0, 0, size/2), size/2);
-		  int[][] M5 = denseMatrixMult(sub(A, A, 1, 0, 0, 0, size/2), sum(B, B, 0, 0, 0, 1, size/2), size/2);
-		  int[][] M6 = denseMatrixMult(sub(A, A, 0, 1, 1, 1, size/2), sum(B, B, 1, 0, 1, 1, size/2), size/2);
-		  
+		int[][] M0 = denseMatrixMult(sum(A, A, 0, 0, size/2, size/2, size / 2), sum(B, B, 0, 0, size/2, size/2, size / 2), size / 2);
+		int[][] M1 = denseMatrixMult(sum(A, A, size/2, 0, size/2, size/2, size / 2), sum(B, zero, 0, 0, 0, 0, size / 2), size / 2);
+		int[][] M2 = denseMatrixMult(sum(A, zero, 0, 0, 0, 0, size / 2), sub(B, B, 0, size/2, size/2, size/2, size / 2), size / 2);
+		int[][] M3 = denseMatrixMult(sum(A, zero, size/2, size/2, 0, 0, size / 2), sub(B, B, size/2, 0, 0, 0, size / 2), size / 2);
+		int[][] M4 = denseMatrixMult(sum(A, A, 0, 0, 0, size/2, size / 2), sum(B, zero, size/2, size/2, 0, 0, size / 2), size / 2);
+		int[][] M5 = denseMatrixMult(sub(A, A, size/2, 0, 0, 0, size / 2), sum(B, B, 0, 0, 0, size/2, size / 2), size / 2);
+		int[][] M6 = denseMatrixMult(sub(A, A, 0, size/2, size/2, size/2, size / 2), sum(B, B, size/2, 0, size/2, size/2, size / 2), size / 2);
+
 		  /*
 		   * C00 = M0 + M3 - M4 + M6
 		   * C01 = M2 + M4
